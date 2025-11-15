@@ -1,16 +1,14 @@
-# 🐍 Mini-Compilador Python — EDTS + AST + Tabla de Símbolos + TAC
+Este proyecto implementa un compilador basado en un subconjunto de Python, capaz de:
 
-Este proyecto implementa un **mini-compilador** basado en un **subconjunto de Python**, capaz de:
-
-- Construir el **Árbol de Sintaxis Abstracta (AST)** mediante un **Esquema de Traducción Dirigido por la Sintaxis (EDTS)**.
-- Generar y mantener una **tabla de símbolos** tipada (`int` / `real`).
-- Crear **código intermedio en tres direcciones (TAC)**.
-- Mostrar el **AST en formato ASCII**.
+- Construir el Árbol de Sintaxis Abstracta (AST) mediante un Esquema de Traducción Dirigido por la Sintaxis (EDTS).
+- Generar y mantener una tabla de símbolos tipada (`int` / `real`).
+- Crear código intermedio en tres direcciones (TAC).
+- Mostrar el AST.
 - Evaluar parcialmente expresiones constantes.
 
 ---
 
-## 📌 1. Gramática utilizada (subconjunto de Python)
+## Gramática utilizada (subconjunto de Python)
 
 Esta es la gramática seleccionada para el proyecto:
 
@@ -44,9 +42,9 @@ Características:
 
 ---
 
-## 📌 2. Atributos y EDTS (Esquema de Traducción Dirigido por la Sintaxis)
+## Atributos y EDTS (Esquema de Traducción Dirigido por la Sintaxis)
 
-### ✔ Atributos utilizados
+### Atributos utilizados
 
 | No terminal / nodo AST            | Atributos | Descripción |
 |----------------------------------|-----------|-------------|
@@ -56,7 +54,7 @@ Características:
 
 ---
 
-### ✔ Reglas con EDTS
+### Reglas con EDTS
 
 #### Asignaciones
 ```
@@ -117,7 +115,7 @@ Factor → '-' Factor
 
 ---
 
-## 📌 3. Tabla de Símbolos
+## Tabla de Símbolos
 
 La tabla de símbolos almacena:
 
@@ -139,22 +137,22 @@ Reglas de manejo de tipos:
 
 ---
 
-## 📌 4. TAC — Código en Tres Direcciones
+## TAC — Código en Tres Direcciones
 
 El compilador genera código intermedio del tipo:
 
-### ✔ Carga de constantes
+### Carga de constantes
 ```
 LDCI n -> t    # entero
 LDCR x -> t    # real
 ```
 
-### ✔ Conversión de tipo
+### Conversión de tipo
 ```
 ITOR tI -> tR  # int → real
 ```
 
-### ✔ Operaciones aritméticas tipadas
+### Operaciones aritméticas tipadas
 ```
 ADDI/ADDR
 SUBI/SUBR
@@ -162,7 +160,7 @@ MULI/MULR
 DIVI/DIVR
 ```
 
-### ✔ Almacenamiento
+### Almacenamiento
 ```
 STORI t -> id
 STORR t -> id
@@ -170,7 +168,7 @@ STORR t -> id
 
 ---
 
-## 📌 5. Ejemplo de ejecución
+## Ejemplo de ejecución
 
 ### Entrada:
 ```
@@ -206,36 +204,10 @@ STORI t5 -> x
 
 ## 📌 6. Ejecución
 
-Para ejecutar el REPL:
 
 ```
-python edts_python_like.py
+python edts_tac.py
 ```
-
-Cada línea que escribas es un `Stmt` de la gramática.
-
----
-
-## 📌 7. Archivos importantes
-
-- `edts_python_like.py` → código del analizador + EDTS + TAC.
-- `README.md` (este archivo).
-
----
-
-## 📌 8. Conclusión
-
-Este proyecto implementa:
-
-- Un **analizador sintáctico LL(1)**.
-- Un **EDTS completo** que genera AST.
-- Una **tabla de símbolos** totalmente funcional.
-- Un generador de **código intermedio TAC** realista.
-- Una herramienta educativa ideal para aprender:
-  ✔ análisis sintáctico  
-  ✔ atributos  
-  ✔ generación de código  
-  ✔ estructura de compiladores  
 
 ---
 
